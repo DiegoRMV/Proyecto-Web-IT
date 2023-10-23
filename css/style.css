@@ -1,0 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+	--color-dark: #000;
+	--color-lihgt: #ffffff;
+	--color-lihgt-2: #f5f5f5;
+	--color-green: #07f1a1;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #ffffff #000000;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #ffffff;
+	border-radius: 10px;
+	border: 0px solid #ffffff;
+}
+
+body {
+	background-color: var(--color-dark);
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	min-height: 100vh;
+	max-width: 2000px;
+	margin: 0 auto;
+}
+
+/* ========== header-nav ========== */
+
+.nav-main {
+	max-width: 2000px;
+	margin: 0 auto;
+}
+
+.nav-logo {
+	font-size: 26px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.nav-logo > img {
+	width: 34px;
+	height: 34px;
+}
+
+.nav-logo > span {
+	color: var(--color-green);
+}
+
+.nav-item > a {
+	position: relative;
+	font-size: 16px;
+	color: var(--color-lihgt);
+	text-decoration: none;
+	/* text-transform: uppercase; */
+	font-weight: 500;
+	letter-spacing: 2.5px;
+}
+
+.nav-item > a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	width: 100%;
+	height: 2px;
+	background: var(--color-lihgt);
+	border-radius: 5px;
+	transform-origin: x;
+	transform: scaleX(0);
+	transition: transform 0.5s;
+}
+
+.nav-item > a:hover::after {
+	transform-origin: center;
+	transform: scaleX(1);
+}
+
+.nav-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+	padding: 0 20px;
+}
+
+.nav-icon > a {
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.nav-register {
+	min-width: 120px;
+	height: 30px;
+	color: #fff;
+	padding: 2px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	border: none;
+	z-index: 0;
+	background: var(--color-green);
+	overflow: hidden;
+	color: #212529;
+	text-decoration: none;
+}
+
+.nav-register:hover {
+	color: #fff;
+}
+
+.nav-register:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	transition: all 0.3s ease;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background: #212529;
+}
+
+.nav-register:hover:after {
+	width: 100%;
+}
+
+.nav-name:hover {
+	/* border: none; */
+	border-color: var(--color-green);
+	background-color: var(--color-green);
+	color: var(--color-dark);
+}
+
+.nav-logout {
+	color: #fff;
+	background: red;
+}
+
+/* ========== carousel ========== */
+
+.carousel-main h5 {
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 25px;
+}
+
+.carousel-main p {
+	width: 60%;
+	margin: auto;
+	font-size: 16px;
+	line-height: 1.9;
+}
+
+.carousel-inner > .carousel-item > img {
+	object-fit: cover;
+	height: 100vh;
+}
+
+.carousel-text {
+	bottom: 80px;
+}
+
+/* ========== main ========== */
+
+.main-container {
+	padding: 0;
+	box-sizing: border-box;
+	min-height: 80vh;
+}
+
+.section-padding {
+	padding: 70px 0;
+	bottom: 50px;
+}
+
+/* ========== footer ========== */
+
+.footer-right {
+	color: var(--color-lihgt);
+	font-size: 36px;
+	font-weight: bold;
+	letter-spacing: 4px;
+}
+
+.footer-right img {
+	width: 60px;
+	height: 60px;
+}
+
+.footer-right span {
+	color: var(--color-green);
+	letter-spacing: 4px;
+}
+
+.footer-center > a {
+	transition: 0.74s;
+	background: none;
+	border-radius: 2;
+	border: 2px solid;
+	line-height: 1;
+	margin: 0rem 0.2rem;
+	padding: 0.6rem 1.5rem;
+	border-color: var(--color-lihgt);
+	color: var(--color-lihgt);
+}
+
+.footer-center > a:hover {
+	background-color: var(--color-green);
+	color: var(--color-dark);
+	border: none;
+}
+
+.footer-left {
+	color: var(--color-lihgt);
+	font-size: 16px;
+}
+
+/* ========== product ========== */
+
+.product-card {
+	border-radius: 12px;
+	overflow-x: hidden;
+	flex-direction: column;
+	height: 100%;
+}
+
+.product-card:hover .card-header img {
+	filter: grayscale(0);
+	transform: scale(1.2) rotate(-2deg);
+}
+
+.card-header {
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+	height: 360px;
+}
+
+.card-header img {
+	width: 100%;
+	object-fit: cover;
+	filter: grayscale(0.5);
+	transition: all 0.3s ease-in;
+}
+
+.gradient-my {
+	font-size: 45px;
+	font-family: bebas neue;
+	background: linear-gradient(100deg, #d4af37, #23d5ab, #ee7752, #23a6d5);
+	background-size: 300%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-align: center;
+	line-height: 0.9;
+	animation: animate 5s ease-in-out infinite;
+}
+
+.gradient-my span {
+	font-weight: 24;
+	font-size: 24px;
+	display: inline;
+}
+
+@keyframes animate {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+
+.card-main {
+	padding: 4px 8px 16px;
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+}
+
+.card-main .card-description {
+	flex: 1;
+}
+
+.card-description {
+	min-height: 100px;
+}
+
+.card-main p {
+	color: var(--color-lihgt);
+	margin: 8px 0;
+	line-height: 24px;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom: 16px;
+}
+
+.card-prices {
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+	width: 100%;
+	align-items: baseline;
+}
+
+.card-payments {
+	font-style: italic;
+	color: #666;
+}
+
+.card-footer {
+	margin: 0;
+	padding: 2px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.card-footer button {
+	background-color: var(--color-green);
+	color: var(--color-dark);
+	padding: 6px;
+	width: 120px;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	font-weight: 100px;
+	cursor: pointer;
+	transition: all 0.2s ease-in;
+}
+
+.card-footer button:hover {
+	background-color: var(--color-dark);
+	border-color: var(--color-green);
+	color: var(--color-lihgt);
+}
+
+/* ========== contact ========== */
+
+.contact-btn {
+	min-width: 120px;
+	height: 30px;
+	color: #fff;
+	padding: 2px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	border: none;
+	z-index: 0;
+	background: var(--color-green);
+	overflow: hidden;
+	color: #212529;
+	text-decoration: none;
+}
+
+.contact-btn:hover {
+	color: #fff;
+}
+
+.contact-btn:hover:after {
+	width: 100%;
+}
+
+.contact-btn:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	transition: all 0.5s ease;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background: #212529;
+}
+
+/* ========== nosotros ========== */
+
+.about-us h2 {
+	color: var(--color-green);
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+.about-us p {
+	font-size: 18px;
+}
+
+.about-us-card h6 {
+	font-size: 16px;
+}
+
+.about-us-card h5 {
+	font-size: 36px;
+}
+
+.about-us-card a {
+	min-width: 60px;
+	height: 30px;
+	padding: 2px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	border: none;
+	z-index: 0;
+	background: var(--color-lihgt);
+	overflow: hidden;
+	color: #212529;
+}
+
+.about-us-card a:hover {
+	color: var(--color-dark);
+}
+
+.about-us-card a:hover:after {
+	width: 100%;
+}
+
+.about-us-card a:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	transition: all 0.3s ease;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background: var(--color-green);
+}
+
+
+/* ========== login ========== */
+
+
+.login-wrapper {
+	max-height: 500px;
+	background: #000;
+	box-shadow: 0 0 20px var(--color-green);
+	padding: 40px;
+	overflow: hidden;
+}
+
+.login-wrapper:hover {
+	animation: animateW 2s linear infinite;
+}
+
+@keyframes animateW {
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+
+
+/* ========== Admin productos ========== */
+
+
+.table-image img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.table-title {
+    font-weight: bold;
+}
+
+.table-description {
+    font-size: .875rem;
+    font-family: monospace
+}
+.table-price {
+    font-weight: bold;
+}
+
+textarea {
+    resize: none;
+}
+

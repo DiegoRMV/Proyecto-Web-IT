@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Usuarios</title>
+
+    <!-- ====== font Awesome ======= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- ====== Animation ======= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- ====== Bootstrap ======= -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+    <!-- ===========================================
+    ==================== HEADER ====================
+    ============================================ -->
+    <header class="main-header">
+        <nav class="nav-main navbar navbar-expand-lg bg-dark fixed-top" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand nav-logo" href="#">
+                    <img src="/assets/images/logo.png" alt="Imagen logo GX">
+                    <span>Tienda</span>GX
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item px-2">
+                            <a class="nav-link px-2" href="/index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/pages/product/product.html">Productos</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/pages/contact/contact.html">Contacto</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="/pages/about-us/about-us.html">Nosotros</a>
+                        </li>
+                    </ul>
+                    <div id="nav-icons" class="nav-icon d-flex justify-content-center">
+                        <a href="/pages/login/login.html" class="nav-link cart-icon mx-2 text-white">
+                            <i class="fa-solid fa-user text-white"></i>
+                        </a>
+                    </div>
+                    <div id="nav-info" class="mx-2 d-flex justify-content-center">
+                        <a href="/pages/register/register.html" class="btn nav-register">Registrarse</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- ===========================================
+    ===================== MAIN =====================
+    ============================================ -->
+    <main class="main-container">
+        <section class="section-padding mt-5">
+            <div class="text-center text-white pb-5">
+                <h2>ADMINISTRADOR DE USUARIOS</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 bg-success rounded-3 table-responsive">
+                        <!-- #Tabla -->
+                        <div class="mb-3">
+                            <label for="filtrar" class="form-label m-2 fw-bold text-white">Filtrar</label>
+                            <input type="text" class="form-control" id="filtrar" placeholder="Nombre Usuario">
+                        </div>
+
+                        <table class="table table-dark table-striped text-center align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Fullname</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-users" class="table-group-divider">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-dark text-white">
+                        <!-- #Formulario -->
+                        <form id="formularioUsuario">
+
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Usuario</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Fullname</label>
+                                    <input type="text" name="name" class="form-control" id="name"
+                                        placeholder="Leonel Messi" required minlength="3" maxlength="70">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@example.com"
+                                        minlength="3" maxlength="70" required>
+                                </div>
+
+                                <div class="mb-3 d-flex gap-3">
+                                    <div class="w-100">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" minlength="3"
+                                            maxlength="70" required>
+                                    </div>
+                                    <div class="w-100">
+                                        <label for="role" class="form-label">Role</label>
+                                        <select class="form-select" id="role" name="role" required>
+                                            <option value=""></option>
+                                            <option value="ROLE_CLIENT">Cliente</option>
+                                            <option value="ROLE_ADMIN">Administrador</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar Usuario</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- ===========================================
+    ==================== FOOTER ====================
+    ============================================ -->
+    <footer class="main-footer">
+        <div class="container-fluid d-flex flex-column bg-dark text-white">
+            <div class="row align-items-center g-4 py-2 my-3">
+                <div class="col-12 col-md-6 col-lg-4 my-auto pb-3">
+                    <div class="footer-right d-flex justify-content-center">
+                        <img src="/assets/images/logo.png" alt="Logo GX" class="d-inline-block align-text-end"> <span
+                            class="fw-bold ms-2">Tienda</span>GX
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 my-auto pb-3">
+                    <div class="footer-center d-flex justify-content-center">
+                        <a class="btn" href="#" target="_blank">
+                            <i class="button-content fa-brands fa-linkedin fa-lg"></i>
+                        </a>
+                        <a class="btn" href="#" target="_blank">
+                            <i class="button-content fa-brands fa-facebook fa-lg"></i>
+                        </a>
+                        <a class="btn" href="#" target="_blank">
+                            <i class="button-content fa-brands fa-twitter fa-lg"></i>
+                        </a>
+                        <a class="btn" href="#" target="_blank">
+                            <i class="button-content fa-brands fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-auto mx-auto">
+                    <div class="footer-left text-center">
+                        © 2023 GX ARG - Todos los derechos reservados
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/admin-users.js"></script>
+    <script src="/js/user-info.js"></script>
+</body>
+
+</html>
