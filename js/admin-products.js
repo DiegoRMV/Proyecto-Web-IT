@@ -21,15 +21,24 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
 
 	const el = formularioProductoHTML.elements;
 
-	let id = crypto.randomUUID();
+	let id;
+
+	if(idEditar) {
+        id = idEditar
+    } else {
+        id = crypto.randomUUID()
+    }
 
 
-	let nuevoUsuario = {
+	let nuevoProducto = {
 		id: id,
-		fullname: el.name.value,
-		email: el.email.value,
-		password: el.password.value,
-		role: el.role.value,
+        titulo: el.tituloName.value,
+        descripcion: el.descripcion.value,
+        precio: el.precio.valueAsNumber,
+		cuotas: el.cuotas.value,
+        imagen: el.imagen.value,
+        categoria: el.categoria.value,
+        fechaDeCreacion: obtenerFecha(),
 	};
 
 	if (idEditar) {

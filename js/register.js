@@ -11,8 +11,6 @@ formularioRegisterHTML.addEventListener("submit", (evt) => {
 
 	let id = "".toString(usuarios.length);
 
-    console.log(id)
-
 
 	let nuevoUsuario = {
 		id: id,

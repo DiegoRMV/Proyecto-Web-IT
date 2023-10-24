@@ -12,36 +12,24 @@ formularioUsersHTML.addEventListener("submit", (evt) => {
 
 	const el = formularioUsersHTML.elements;
 
-	let id;
-
-	if (idEditar) {
-		id = idEditar;
-	} else {
-		id = crypto.randomUUID();
-	}
-
 	let nuevoUsuario = {
-		id: id,
+		id: idEditar,
 		fullname: el.name.value,
 		email: el.email.value,
 		password: el.password.value,
 		role: el.role.value,
 	};
 
-	if (idEditar) {
-		const index = adminUsers.findIndex((usuario) => {
-			return usuario.id === idEditar;
-		});
+	const index = adminUsers.findIndex((usuario) => {
+		return usuario.id === idEditar;
+	});
 
-		adminUsers[index] = nuevoUsuario;
+	adminUsers[index] = nuevoUsuario;
 
-		idEditar = undefined;
-		if (adminUsers[index].role === "ROLE_ADMIN") {
-			nuevoUsuario.role === "ROLE_ADMIN";
-			localStorage.setItem("currentUser", JSON.stringify(nuevoUsuario));
-		}
-	} else {
-		adminUsers.push(nuevoUsuario);
+	idEditar = undefined;
+	if (adminUsers[index].role === "ROLE_ADMIN") {
+		nuevoUsuario.role === "ROLE_ADMIN";
+		localStorage.setItem("currentUser", JSON.stringify(nuevoUsuario));
 	}
 
 	Swal.fire({
@@ -133,8 +121,6 @@ const editarUser = function (idRecibido) {
 		}
 	});
 
-	if (!userEditar) return;
-
 	idEditar = userEditar.id;
 
 	const elements = formularioUsersHTML.elements;
@@ -144,7 +130,7 @@ const editarUser = function (idRecibido) {
 	elements.password.value = userEditar.password;
 	elements.role.value = userEditar.role;
 
-	btn.innerText = "Editar Producto";
+	btn.innerText = "Editar Usuario";
 	btn.classList.add("btn-success");
 };
 
