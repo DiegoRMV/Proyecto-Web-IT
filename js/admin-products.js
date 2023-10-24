@@ -1,4 +1,5 @@
 let idEditar;
+const tituloForm = document.getElementById("form-title");
 const btn = document.querySelector('button.btn[type="submit"]');
 const tableBodyHTML = document.getElementById("table-products");
 
@@ -13,7 +14,10 @@ const formularioProductoHTML = document.getElementById("formularioProducto");
 const agregarBtn = document.getElementById("admin-add-product");
 
 agregarBtn.addEventListener("click", () => {
-    formularioProductoHTML.reset();
+	formularioProductoHTML.reset();
+	tituloForm.innerText = "Cargar nuevo producto";
+	btn.innerText = "Agregar producto";
+	btn.classList.remove("btn-success");
 });
 
 formularioProductoHTML.addEventListener("submit", (evt) => {
@@ -23,22 +27,21 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
 
 	let id;
 
-	if(idEditar) {
-        id = idEditar
-    } else {
-        id = crypto.randomUUID()
-    }
-
+	if (idEditar) {
+		id = idEditar;
+	} else {
+		id = crypto.randomUUID();
+	}
 
 	let nuevoProducto = {
 		id: id,
-        titulo: el.tituloName.value,
-        descripcion: el.descripcion.value,
-        precio: el.precio.valueAsNumber,
+		titulo: el.tituloName.value,
+		descripcion: el.descripcion.value,
+		precio: el.precio.valueAsNumber,
 		cuotas: el.cuotas.value,
-        imagen: el.imagen.value,
-        categoria: el.categoria.value,
-        fechaDeCreacion: obtenerFecha(),
+		imagen: el.imagen.value,
+		categoria: el.categoria.value,
+		fechaDeCreacion: obtenerFecha(),
 	};
 
 	if (idEditar) {
@@ -49,9 +52,6 @@ formularioProductoHTML.addEventListener("submit", (evt) => {
 		productos[index] = nuevoProducto;
 
 		idEditar = undefined;
-
-		btn.innerText = "Agregar producto";
-		btn.classList.remove("btn-success");
 	} else {
 		productos.push(nuevoProducto);
 	}
@@ -162,6 +162,7 @@ const editarProducto = function (idRecibido) {
 	elements.imagen.value = productoEditar.imagen;
 	elements.categoria.value = productoEditar.categoria;
 
+	tituloForm.innerText = "Editar producto";
 	btn.innerText = "Editar Producto";
 	btn.classList.add("btn-success");
 };

@@ -129,9 +129,6 @@ const editarUser = function (idRecibido) {
 	elements.email.value = userEditar.email;
 	elements.password.value = userEditar.password;
 	elements.role.value = userEditar.role;
-
-	btn.innerText = "Editar Usuario";
-	btn.classList.add("btn-success");
 };
 
 function obtenerFecha() {
